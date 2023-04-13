@@ -37,13 +37,13 @@ describe('Registro de usuário', ()=> {
         cy.contains('ap-vmessage', 'Must be lower case').should('be.visible');
     })
 
-    it.only('registrar usuario com sucesso', ()=>{
+    it('registrar usuario com sucesso', ()=>{
         cy.register('fulana@email.com', 'Fulana de Tal', 'fulaninha', '12345678'); //comando criado na pasta >support>gui_commands.js
     })
 
     const usuarios = require('../../fixtures/usuarios.json');
     usuarios.forEach(usuario => {
-        it.only(`registrar usuario ${usuario.fullName} com sucesso`, () =>{
+        it(`registrar usuario ${usuario.fullName} com sucesso`, () =>{
             cy.register(usuario.email, usuario.fullName, usuario.userName, usuario.password); //comando criado na pasta >support>gui_commands.js
         })
     })
